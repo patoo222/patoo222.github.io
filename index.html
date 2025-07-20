@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Texto animado con scroll</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      min-height: 200vh;
+    }
+
+    .container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      border-bottom: 2px solid #444;
+    }
+
+    .texto {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 2em;
+      animation: moverTexto 6s ease-in-out forwards;
+      top: 40%;
+      left: -100%;
+      transform: translateY(-50%);
+    }
+
+    .autor {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 0.9em;
+      color: #ccc;
+      top: 55%;
+      right: -100%;
+      transform: translateY(-50%);
+      animation: moverAutor 6s ease-in-out forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes moverTexto {
+      0% {
+        left: -100%;
+      }
+      40% {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      60% {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      100% {
+        left: 100%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    @keyframes moverAutor {
+      0% {
+        right: -100%;
+      }
+      40% {
+        right: 50%;
+        transform: translate(50%, -50%);
+      }
+      60% {
+        right: 50%;
+        transform: translate(50%, -50%);
+      }
+      100% {
+        right: 100%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    .contenido {
+      padding: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="texto">Welcome!! </div>
+    <div class="autor">by Patricio Rebolledo</div>
+  </div>
+
+  <div class="contenido">
+    <h2>Contenido de la página</h2>
+    <p>Repositorio de mis datos.</p>
+    <p>Cada una de mis plataformas de interés abajo👇.</p>
+
+    <div class="bloque-enlace">
+      <h3>Contenido relacionado</h3>
+      <p>
+        Libro Ecuaciones Diferenciales:
+        <a href="https://drive.google.com/uc?export=download&id=159sfZg2oAFg_uxk1ouuRA5e_nv-D4hh8" target="_blank">
+          📥 Descargar libro de ejercicios resueltos (PDF)
+        </a>
+      </p>
+    </div>
+
+    <div class="bloque-enlace">
+      <p>
+        Mi Spotify:
+        <a href="https://open.spotify.com/user/3155qclk57pfg275u5awuvcfgjc4?si=7CIzKYtwSNeHGwefpt1loA&fbclid=PAZXh0bgNhZW0CMTEAAacY5KpFAiVUmX1sIg-Rv_4s6OMp3C0XaiJuDZuyMhG6jAfT-O80TW46ZlMhIw_aem_ZNWpLa1kOcVgxDT5i8RoGw&nd=1&dlsi=cf027cc4fcd24385">sss</a>
+      </p>
+
+
+
+      <div class="bloque-enlace">
+      <p>
+        Github
+        <a href="https://github.com/patoo222">Github</a>
+      </p>
+      <p>
+        Mi Curso de Udemy EDO.:
+        <a href="#">proximamente</a>
+      </p>
+    </div>
+  </div>
+</body>
+</html>
+
+
