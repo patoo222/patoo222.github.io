@@ -87,3 +87,16 @@ setTimeout(() => {
     imagenesLaterales.classList.add('visible');
   }
 }, 1300); // 1.3 segundos después de que el contenido aparece
+
+// Seleccionamos el reproductor
+const reproductor = document.querySelector('.reproductor');
+
+texto.addEventListener('animationend', () => {
+  autor.style.display = 'none';
+  texto.style.display = 'none';
+  contenido.style.display = 'flex';
+  animarItems();
+
+  // 👇 Mostrar el reproductor con animación
+  reproductor.classList.add('visible');
+});
