@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Texto animado con scroll</title>
+  <meta charset="UTF-8" />
+  <title>Texto animado con scroll y animación en links</title>
+  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
@@ -43,14 +44,8 @@
     }
 
     @keyframes moverTexto {
-      0% {
-        left: -100%;
-      }
-      40% {
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      60% {
+      0% { left: -100%; }
+      40%, 60% {
         left: 50%;
         transform: translate(-50%, -50%);
       }
@@ -61,14 +56,8 @@
     }
 
     @keyframes moverAutor {
-      0% {
-        right: -100%;
-      }
-      40% {
-        right: 50%;
-        transform: translate(50%, -50%);
-      }
-      60% {
+      0% { right: -100%; }
+      40%, 60% {
         right: 50%;
         transform: translate(50%, -50%);
       }
@@ -78,52 +67,177 @@
       }
     }
 
-    .contenido {
+    #contenido {
+      display: none;
       padding: 2em;
+      display: flex;
+      gap: 2em;
+      align-items: flex-start;
+      flex-wrap: nowrap;
+    }
+
+    .content-left {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .content-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 5em;
+    }
+
+    .content-right img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .jello-horizontal {
+      animation: jello-horizontal 0.9s linear both;
+    }
+
+    @keyframes jello-horizontal {
+      0% { transform: scale3d(1, 1, 1); }
+      30% { transform: scale3d(1.25, 0.75, 1); }
+      40% { transform: scale3d(0.75, 1.25, 1); }
+      50% { transform: scale3d(1.15, 0.85, 1); }
+      65% { transform: scale3d(0.95, 1.05, 1); }
+      75% { transform: scale3d(1.05, 0.95, 1); }
+      100% { transform: scale3d(1, 1, 1); }
+    }
+
+    .item {
+      margin-bottom: 1em;
+      font-size: 1.1em;
+    }
+
+    a {
+      color: white;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .imagen-derecha {
+      text-align: center;
+    }
+
+    .imagen-derecha img {
+      width: 150px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    }
+
+    .imagen-derecha figcaption {
+      margin-top: 10px;
+    }
+
+    .imagen-derecha figcaption a {
+      font-size: 0.95em;
+      color: #e1306c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .imagen-derecha figcaption a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <div class="texto">Welcome!! </div>
-    <div class="autor">by Patricio Rebolledo</div>
-  </div>
+  <div class="texto">Welcome!!</div>
+  <div class="autor">by Patricio Rebolledo</div>
+  <div class="repositorio">repository</div>  <!-- nuevo -->
+  <div class="repository-text">Repository</div> <!-- Nuevo texto fijo -->
+</div>
+</div>
 
-  <div class="contenido">
-    <h2>Contenido de la página</h2>
-    <p>Repositorio de mis datos.</p>
-    <p>Cada una de mis plataformas de interés abajo👇.</p>
 
-    <div class="bloque-enlace">
-      <h3>Contenido relacionado</h3>
-      <p>
-        Libro Ecuaciones Diferenciales:
-        <a href="https://drive.google.com/uc?export=download&id=159sfZg2oAFg_uxk1ouuRA5e_nv-D4hh8" target="_blank">
-          📥 Descargar libro de ejercicios resueltos (PDF)
+  <div id="contenido">
+    <div class="content-left">
+      <h1>Page content</h1>
+      <div class="item">Repository of my data.</div>
+      <div class="item">Each of my platforms of interest below 👇.</div>
+
+      <div class="item">Related content</div>
+      <div class="item">
+        Differential Equations Book:
+        <a href="https://drive.google.com/uc?export=download&id=159sfZg2oAFg_uxk1ouuRA5e_nv-D4hh8" target="_blank" onclick="animarLink(event)">
+          📅 Download solved exercise book (PDF)
         </a>
-      </p>
+      </div>
+
+      <div class="item">
+        My Spotify:
+        <a href="https://open.spotify.com/user/3155qclk57pfg275u5awuvcfgjc4" target="_blank" onclick="animarLink(event)">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify" class="logo-spotify" />
+        </a>
+      </div>
+
+      <div class="item">
+        Github:
+        <a href="https://github.com/patoo222" target="_blank" onclick="animarLink(event)">
+          <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub" class="logo-github" />
+        </a>
+      </div>
+
+      <div class="item">
+        My Udemy ODE Course:
+        <a href="#" onclick="animarLink(event)">Coming soon</a>
+      </div>
     </div>
 
-    <div class="bloque-enlace">
-      <p>
-        Mi Spotify:
-        <a href="https://open.spotify.com/user/3155qclk57pfg275u5awuvcfgjc4?si=7CIzKYtwSNeHGwefpt1loA&fbclid=PAZXh0bgNhZW0CMTEAAacY5KpFAiVUmX1sIg-Rv_4s6OMp3C0XaiJuDZuyMhG6jAfT-O80TW46ZlMhIw_aem_ZNWpLa1kOcVgxDT5i8RoGw&nd=1&dlsi=cf027cc4fcd24385">sss</a>
-      </p>
+    <div class="content-right">
+  <figure class="imagen-derecha">
+    <img src="mike.jpg" alt="Imagen descriptiva" />
+    <figcaption>
+      <a href="https://www.instagram.com/patriciorv._/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+             alt="Instagram"
+             style="width: 30px; height: 30px;" />
+      </a>
+    </figcaption>
+  </figure>
+</div>
 
 
+  
+  <script>
+    const texto = document.querySelector('.texto');
+    const autor = document.querySelector('.autor');
+    const contenido = document.getElementById('contenido');
 
-      <div class="bloque-enlace">
-      <p>
-        Github
-        <a href="https://github.com/patoo222">Github</a>
-      </p>
-      <p>
-        Mi Curso de Udemy EDO.:
-        <a href="#">proximamente</a>
-      </p>
-    </div>
-  </div>
+    texto.addEventListener('animationend', () => {
+      autor.style.display = 'none';
+      texto.style.display = 'none';
+      contenido.style.display = 'flex';
+      animarItems();
+    });
+
+    function animarLink(event) {
+      const el = event.currentTarget;
+      el.classList.remove('jello-horizontal');
+      void el.offsetWidth;
+      el.classList.add('jello-horizontal');
+    }
+
+    function animarItems() {
+      const items = document.querySelectorAll('.content-left .item');
+      items.forEach((item, i) => {
+        item.style.opacity = 0;
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.5s ease';
+          item.style.opacity = 1;
+        }, i * 200);
+      });
+    }
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-

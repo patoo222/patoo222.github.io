@@ -1,0 +1,277 @@
+body {
+  margin: 0;
+  background-color: #111;
+  color: white;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Intro animación */
+#intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  border-bottom: 2px solid #444;
+}
+
+.texto {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 2em;
+  animation: moverTexto 6s ease-in-out forwards;
+  top: 40%;
+  left: -100%;
+  transform: translateY(-50%);
+}
+
+.autor {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 0.9em;
+  color: #ccc;
+  top: 55%;
+  right: -100%;
+  transform: translateY(-50%);
+  animation: moverAutor 6s ease-in-out forwards;
+  opacity: 0.9;
+}
+
+@keyframes moverTexto {
+  0% {
+    left: -100%;
+  }
+  40%, 60% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    left: 100%;
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes moverAutor {
+  0% {
+    right: -100%;
+  }
+  40%, 60% {
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  100% {
+    right: 100%;
+    transform: translate(0, -50%);
+  }
+}
+
+/* Contenido principal */
+#contenido {
+  display: none;
+  padding: 2em;
+}
+
+/* Animación de rebote secuencial */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.item {
+  opacity: 0;
+  transform: scale(0.3);
+  animation: bounceIn 0.6s ease forwards;
+  margin-bottom: 1em;
+}
+
+/* Cascada: delay diferente por ítem */
+.item:nth-child(1) { animation-delay: 0.5s; }
+.item:nth-child(2) { animation-delay: 1s; }
+.item:nth-child(3) { animation-delay: 1.5s; }
+.item:nth-child(4) { animation-delay: 2s; }
+.item:nth-child(5) { animation-delay: 2.5s; }
+.item:nth-child(6) { animation-delay: 3s; }
+.item:nth-child(7) { animation-delay: 3.5s; }
+.item:nth-child(8) { animation-delay: 4s; }
+.item:nth-child(9) { animation-delay: 4.5s; }
+
+/* Enlaces */
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffcc00;
+  text-decoration: underline;
+}
+
+
+.jello-horizontal {
+  animation: jello-horizontal 0.9s linear both;
+}
+
+@keyframes jello-horizontal {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+.imagen-derecha img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.logo-spotify {
+  width: 120px;   /* o el tamaño que prefieras */
+  height: auto;
+  vertical-align: middle;
+  transition: transform 0.3s;
+}
+
+.logo-spotify:hover {
+  transform: scale(1.05);
+}
+
+.logo-github {
+  width: 40px;   /* puedes ajustar el tamaño */
+  height: auto;
+  vertical-align: middle;
+  transition: transform 0.3s;
+}
+
+.logo-github:hover {
+  transform: scale(1.1);
+}
+
+.imagen-derecha {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  text-align: center;
+}
+
+.imagen-derecha img {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.imagen-derecha {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+  text-align: center;
+}
+
+.imagen-derecha img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.imagen-derecha figcaption {
+  margin-top: 10px;
+}
+
+.imagen-derecha figcaption a {
+  font-size: 0.95em;
+  color: #e1306c; /* Instagram pink */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.imagen-derecha figcaption a:hover {
+  text-decoration: underline;
+}
+
+
+.content-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5em;
+  opacity: 0;             /* Invisible al inicio */
+  visibility: hidden;     /* No interactúa mientras invisible */
+  transition: opacity 1s ease;
+}
+
+.content-right.visible {
+  opacity: 1;
+  visibility: visible;    /* Visible cuando tiene esta clase */
+}
+
+.repositorio {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4em;
+  font-weight: bold;
+  color: #ffcc00;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.repositorio.visible {
+  opacity: 1;
+}
+
+.repositorio {color: white;}
+
+.repository-text {
+  position: absolute;
+  top: 15%; /* Ajusta para moverlo más arriba o abajo */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3em;
+  font-weight: bold;
+  color: #ffcc00;
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Cuando queremos que aparezca */
+.repository-text.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.repository-text {color: white;}
