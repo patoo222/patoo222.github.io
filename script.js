@@ -79,3 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Mostrar las imágenes laterales con efecto
+setTimeout(() => {
+  const imagenesLaterales = document.querySelector('.imagenes-laterales');
+  if (imagenesLaterales) {
+    imagenesLaterales.classList.add('visible');
+  }
+}, 1300); // 1.3 segundos después de que el contenido aparece
