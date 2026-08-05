@@ -1,1 +1,1 @@
-Hi!! You can visit my website at patoo222.github.io. It was primarily built using HTML, CSS, and JavaScript. However, I learned these technologies entirely through independent study, gradually developing my skills and continuously improving the project over time.
+Hi!! You can visit my website at > 🌐 **Website:** https://patoo222.github.io/ It was primarily built using HTML, CSS, and JavaScript. However, I learned these technologies entirely through independent study, gradually developing my skills and continuously improving the project over time.
